@@ -1,0 +1,291 @@
+# ═══════════════════════════════════════════════════
+# Wiesn-Agent Configuration
+# ═══════════════════════════════════════════════════
+# Adjust this file to your needs.
+# Copy it as config.yaml and fill in your information.
+
+# ── Your details for reservation requests ─────────
+user:
+  vorname: "Max"
+  nachname: "Mustermann"
+  email: "max@example.com"
+  telefon: "+49 170 1234567"
+  personen: 10
+  notizen: "Business dinner, prefer indoor seating"
+  # Optional address fields (used for form auto-fill)
+  strasse: ""
+  hausnummer: ""
+  plz: ""
+  stadt: ""
+  firma: ""
+
+# ── Preferred dates & time slots ──────────────────
+# Which days and slots do you want to reserve?
+# Slots: morgens (10-12h), mittags (12-16h), abends (16-23h)
+reservierung:
+  # Which dates do you prefer?
+  wunsch_tage:
+    - "2026-09-19"  # Saturday — Opening day
+    - "2026-09-20"  # Sunday
+    - "2026-09-26"  # Saturday
+    - "2026-10-03"  # German Unity Day
+
+  # Which time slots do you prefer?
+  slots:
+    morgens:
+      enabled: true
+      von: "10:00"
+      bis: "12:00"
+      prioritaet: 3        # 1 = highest, 3 = lowest
+
+    mittags:
+      enabled: true
+      von: "12:00"
+      bis: "16:00"
+      prioritaet: 2
+
+    abends:
+      enabled: true
+      von: "16:00"
+      bis: "23:00"
+      prioritaet: 1         # Evening is most popular for most people
+
+  # Minimum and maximum number of people
+  min_personen: 6
+  max_personen: 12
+
+# ── Monitored booking portals ─────────────────────
+# Official reservation URLs from oktoberfest.de (as of 2026)
+# Set enabled: true for tents you are interested in.
+portale:
+  # ─── GROSSE ZELTE ─────────────────────────────
+  - name: "Armbrustschützenzelt"
+    url: "https://reservierung.armbrustschuetzenzelt.de/reservierung"
+    brauerei: "Paulaner"
+    enabled: true
+
+  - name: "Augustiner Festhalle"
+    url: "https://www.festhalle-augustiner.com/reservierung/"
+    brauerei: "Augustiner"
+    enabled: true
+
+  - name: "Fischer-Vroni"
+    url: "https://reservierung.fischer-vroni.de/reservation"
+    brauerei: "Augustiner"
+    enabled: true
+
+  - name: "Hacker-Festzelt"
+    url: "https://reservierung.derhimmelderbayern.de/reservierung"
+    brauerei: "Hacker-Pschorr"
+    enabled: true
+
+  - name: "Hofbräu-Festzelt"
+    url: "https://reservierung.hb-festzelt.de/reservierung"
+    brauerei: "Hofbräu"
+    enabled: true
+
+  - name: "Käfer Wiesn-Schänke"
+    url: "https://www.feinkost-kaefer.de/wiesn-schaenke"
+    brauerei: "Paulaner"
+    enabled: true
+
+  - name: "Kufflers Weinzelt"
+    url: "https://www.weinzelt.com/de/reservierung/"
+    brauerei: "Paulaner"
+    enabled: true
+
+  - name: "Löwenbräu-Festzelt"
+    url: "https://www.loewenbraeuzelt.de/reservierungen/"
+    brauerei: "Löwenbräu"
+    enabled: true
+
+  - name: "Marstall Festzelt"
+    url: "https://reservierung.marstall-oktoberfest.de/reservation"
+    brauerei: "Spaten"
+    enabled: true
+
+  - name: "Ochsenbraterei"
+    url: "https://reservierung.ochsenbraterei.de/reservierungen"
+    brauerei: "Spaten"
+    enabled: true
+
+  - name: "Paulaner Festzelt"
+    url: "https://reservierung.paulanerfestzelt.de/reservierung"
+    brauerei: "Paulaner"
+    enabled: true
+
+  - name: "Pschorr-Bräurosl"
+    url: "https://reservierung.braeurosl.de/reservation/"
+    brauerei: "Hacker-Pschorr"
+    enabled: true
+
+  - name: "Schottenhamel"
+    url: "https://reservierung.festhalle-schottenhamel.de/reservation/"
+    brauerei: "Spaten"
+    enabled: true
+
+  - name: "Schützen-Festzelt"
+    url: "https://reservierung.schuetzenfestzelt.com/reservation"
+    brauerei: "Löwenbräu"
+    enabled: true
+
+  # ─── KLEINE ZELTE ─────────────────────────────
+  - name: "Boandlkramerei"
+    url: "https://reservierung.boandlkramerei.bayern/reservation"
+    brauerei: "Münchner Bier"
+    enabled: false
+
+  - name: "Festzelt Tradition"
+    url: "https://ers.ratskeller.com/booking/ExternalBookingRequestIFrame.php?&externalapp"
+    brauerei: "Münchner Bier"
+    enabled: false
+
+  - name: "Schützenlisl"
+    url: "https://reservierung.stiftl-oktoberfest.de/reservation/"
+    brauerei: "Münchner Bier"
+    enabled: false
+
+  - name: "Ammer Hühner- und Entenbraterei"
+    url: "https://ammer-wiesn.de/reservierung/"
+    brauerei: "Paulaner"
+    enabled: false
+
+  - name: "Bodo's Cafézelt"
+    url: "http://www.bodos.de/reservierungen/"
+    enabled: false
+
+  - name: "Café Kaiserschmarrn"
+    url: "https://www.rischart.de/oktoberfest/rischart-s-cafe-kaiserschmarrn/"
+    enabled: false
+
+  - name: "Café Theres"
+    url: "https://cafe-theres.de/reservieren/"
+    enabled: false
+
+  - name: "Feisingers Kas- und Weinstubn"
+    url: "https://wiesnzelt.de/wiesn-resevierung-2023/"
+    brauerei: "Paulaner"
+    enabled: false
+
+  - name: "Fisch-Bäda"
+    url: "https://fisch-baeda.de/Seite/Reservierung.html"
+    brauerei: "Augustiner"
+    enabled: false
+
+  - name: "Glöckle Wirt"
+    url: "https://gloeckle-wirt.de/reservierung.html"
+    brauerei: "Spaten"
+    enabled: false
+
+  - name: "Goldener Hahn"
+    url: "https://www.ables-goldener-hahn.de/"
+    brauerei: "Spaten"
+    enabled: false
+
+  - name: "Haxnbraterei"
+    url: "http://www.haxenbraterei.com/ueber-uns/"
+    brauerei: "Augustiner"
+    enabled: false
+
+  - name: "Heimer Enten- und Hühnerbraterei"
+    url: "https://www.heimer-entenbraterei.de/"
+    brauerei: "Paulaner"
+    enabled: false
+
+  - name: "Heinz Wurst- und Hühnerbraterei"
+    url: "https://www.heinz-huehnerbraterei.de/oktoberfest/reservierung/"
+    brauerei: "Spaten"
+    enabled: false
+
+  - name: "Kalbsbraterei"
+    url: "http://kalbsbraterei.de/"
+    brauerei: "Spaten"
+    enabled: false
+
+  - name: "Münchner Knödelei"
+    url: "https://muenchner-knoedelei.de/#online-reservierung"
+    brauerei: "Hacker-Pschorr"
+    enabled: false
+
+  - name: "Münchner Stubn"
+    url: "https://muenchnerstubn-festzelt.de/reservierung/"
+    brauerei: "Hofbräu"
+    enabled: false
+
+  - name: "Poschner Hühnerbraterei"
+    url: "https://www.poschners.de/"
+    brauerei: "Hacker-Pschorr"
+    enabled: false
+
+  - name: "Schiebl's Kaffeehaferl"
+    url: "http://www.schiebls-cafebetriebe.de/"
+    enabled: false
+
+  - name: "Vinzenzmurr Metzgerstubn"
+    url: "https://vinzenzmurr.de/metzger-stubn/"
+    brauerei: "Spaten"
+    enabled: false
+
+  - name: "Wiesn Guglhupf"
+    url: "http://www.wiesn-guglhupf.de/reservierung/"
+    enabled: false
+
+  - name: "Wildstuben"
+    url: "https://wildstuben.de/reservierung/"
+    brauerei: "Paulaner"
+    enabled: false
+
+  - name: "Wirtshaus im Schichtl"
+    url: "https://www.schichtl.de/wirtshaus/#reservierungsanfrage"
+    brauerei: "Augustiner"
+    enabled: false
+
+  - name: "Zur Bratwurst"
+    url: "https://www.zur-bratwurst.de/"
+    brauerei: "Spaten"
+    enabled: false
+
+# ── Notifications ─────────────────────────────────
+# When and how do you want to be notified?
+notifications:
+  # Desktop notification (macOS/Windows/Linux)
+  desktop: true
+
+  # Only notify on certain days?
+  # Empty = always, or e.g. ["Mo", "Di", "Mi", "Do", "Fr"]
+  nur_an_tagen: []
+
+  # Only during certain hours?
+  stille_zeit:
+    von: "22:00"
+    bis: "08:00"
+
+  # Apprise URLs — Push, Email, Telegram, Slack, etc. (133+ services)
+  # Full list: https://github.com/caronc/apprise/wiki
+  apprise_urls:
+    - "ntfy://wiesn-alert"       # Mobile push (free, no account needed)
+    # - "tgram://BOT_TOKEN/CHAT_ID"  # Telegram
+    # - "slack://TOKEN_A/TOKEN_B/TOKEN_C"  # Slack
+    # - "discord://WEBHOOK_ID/WEBHOOK_TOKEN"  # Discord
+
+  # BotBell — Push notifications on iPhone/iPad/Mac
+  # 1. Install BotBell app from the App Store
+  # 2. Create a bot → copy the token (bt_... or pak_...)
+  # 3. Paste here:
+  botbell_token: ""   # e.g. "bt_abc123" or "pak_xyz789"
+
+  # Fun emojis in notification titles? 🍺🌙🎪
+  use_emojis: true
+
+# ── Monitoring ────────────────────────────────────
+monitoring:
+  check_interval_minutes: 30
+  max_retries: 3
+  screenshot_on_change: true
+  screenshot_dir: "./screenshots"
+
+# ── Browser ───────────────────────────────────────
+browser:
+  headless: true       # true = invisible, false = browser visible
+  slow_mo: 300         # ms between actions
+  timeout: 30000       # max wait time in ms

@@ -1,0 +1,21 @@
+services:
+  wiesn-agent:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./.env:/app/.env
+      - ./data:/app/data
+      - ./screenshots:/app/screenshots
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - GITHUB_MODEL=${GITHUB_MODEL:-gpt-4o}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:5173,http://localhost:5000}
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped

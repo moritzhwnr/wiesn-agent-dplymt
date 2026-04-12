@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Config with real user data
+config.yaml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Screenshots and local scan artifacts
+screenshots/
+
+# GitHub workflows and config (not published)
+.github/
+
+# Agent skills (local only)
+.agents/
+skills/
+skills-lock.json
+
+# UV lock file
+uv.lock
+
+# Monitoring/runtime data
+data/
+
+# Tests (not published)
+tests/
+
+# Graphify local artifacts
+.graphify*
+graphify-out/
+src/wiesn_agent/graphify-out/
+
+# Test artifacts
+tests/portal_scan_results.json
+tests/deep_scan_results.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright-report/
+test-results/
+
+# Playwright MCP snapshots
+.playwright-mcp/
+
+# Test screenshots (root level)
+/*.png
+/*.jpeg

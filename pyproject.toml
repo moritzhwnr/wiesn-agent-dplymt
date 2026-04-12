@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wiesn-agent"
+version = "0.1.0"
+description = "AI agent system for monitoring and reserving Oktoberfest beer tent tables"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Anna" },
+]
+keywords = ["oktoberfest", "wiesn", "agent", "reservation", "ai", "mcp", "model-context-protocol"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+dependencies = [
+    "mcp[cli] >=1.20",
+    "playwright >=1.40",
+    "pyyaml >=6.0",
+    "pydantic >=2.0",
+    "python-dotenv >=1.0",
+    "httpx >=0.27",
+    "apprise >=1.9",
+    "botbell >=0.1",
+    "openai >=1.30",
+    "agent-framework[viz] >=1.0.0",
+    "agent-framework-openai >=1.0.0",
+]
+
+[project.optional-dependencies]
+web = [
+    "fastapi >=0.115",
+    "uvicorn[standard] >=0.30",
+]
+devui = [
+    "agent-framework-devui >=1.0.0",
+]
+dev = [
+    "pytest >=8.0",
+    "pytest-asyncio >=0.23",
+    "freezegun >=1.5",
+    "ruff >=0.4",
+]
+
+[project.scripts]
+wiesn-agent = "wiesn_agent.main:main"
+wiesn-mcp = "wiesn_agent.mcp_server:main"
+
+[project.urls]
+Homepage = "https://github.com/annawiewer/wiesn-agent"
+Repository = "https://github.com/annawiewer/wiesn-agent"
+Issues = "https://github.com/annawiewer/wiesn-agent/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wiesn_agent"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-p no:playwright"
