@@ -95,7 +95,7 @@ def run_devui(config: WiesnConfig) -> None:
         sys.exit(1)
 
 
-def run_web(config: WiesnConfig, port: int = 5000, host: str = "127.0.0.1") -> None:
+def run_web(config: WiesnConfig, port: int = 5001, host: str = "127.0.0.1") -> None:
     """Start the web dashboard UI."""
     import uvicorn
 
@@ -146,8 +146,8 @@ Examples:
     parser.add_argument(
         "--port",
         type=int,
-        default=5000,
-        help="Port for web server (default: 5000)",
+        default=5001,
+        help="Port for web server (default: 5001)",
     )
 
     args = parser.parse_args()

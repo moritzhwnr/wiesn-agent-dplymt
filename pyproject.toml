@@ -32,7 +32,7 @@ dependencies = [
     "apprise >=1.9",
     "botbell >=0.1",
     "openai >=1.30",
-    "agent-framework[viz] >=1.0.0",
+    "agent-framework-core >=1.0.0",
     "agent-framework-openai >=1.0.0",
 ]
 

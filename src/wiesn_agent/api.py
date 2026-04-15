@@ -592,7 +592,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="Wiesn-Agent", version="0.1.0", lifespan=lifespan)
 
 _CORS_ORIGINS = os.getenv(
-    "CORS_ORIGINS", "http://localhost:5173,http://localhost:5000"
+    "CORS_ORIGINS", "http://localhost:5173,http://localhost:5001"
 ).split(",")
 
 app.add_middleware(

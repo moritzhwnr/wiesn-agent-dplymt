@@ -25,6 +25,7 @@ COPY pyproject.toml README.md LICENSE ./
 COPY src/ src/
 RUN pip install --no-cache-dir uv \
     && uv pip install --system ".[web]" \
+    && playwright install-deps \
     && playwright install chromium
 
 # Copy built frontend from stage 1
@@ -36,7 +37,7 @@ COPY config.example.yaml ./
 # Data directory
 RUN mkdir -p data screenshots
 
-EXPOSE 5000
+EXPOSE 5001
 
 # Use config.yaml if mounted, otherwise fall back to example
 CMD ["sh", "-c", "test -f config.yaml || cp config.example.yaml config.yaml; wiesn-agent web --host 0.0.0.0"]
